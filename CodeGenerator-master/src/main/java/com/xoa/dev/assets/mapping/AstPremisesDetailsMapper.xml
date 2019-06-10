@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xoa.dev.assets.dao.AstPremisesDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.xoa.dev.assets.model.AstPremisesDetails">
+    <result column="PREMDETA_ID" jdbcType="INTEGER" property="premdetaId" />
+    <result column="PREM_ID" jdbcType="INTEGER" property="premId" />
+    <result column="PREMISES_NUM" jdbcType="VARCHAR" property="premisesNum" />
+    <result column="PREMISES_NAME" jdbcType="VARCHAR" property="premisesName" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="CATE_ID" jdbcType="INTEGER" property="cateId" />
+    <result column="ASSETS_TYPE" jdbcType="CHAR" property="assetsType" />
+    <result column="COST" jdbcType="VARCHAR" property="cost" />
+    <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="BUILDING_NAME" jdbcType="VARCHAR" property="buildingName" />
+    <result column="DISPUTE" jdbcType="CHAR" property="dispute" />
+    <result column="LITIGATION" jdbcType="VARCHAR" property="litigation" />
+    <result column="LAYER" jdbcType="VARCHAR" property="layer" />
+    <result column="TYPE" jdbcType="CHAR" property="type" />
+    <result column="COMPLETION_TIME" jdbcType="TIMESTAMP" property="completionTime" />
+    <result column="PURPOSE" jdbcType="VARCHAR" property="purpose" />
+    <result column="ACCOUNTS_AREA" jdbcType="VARCHAR" property="accountsArea" />
+    <result column="ABROAD_AREA" jdbcType="VARCHAR" property="abroadArea" />
+    <result column="ACCOUNTS_MONEY" jdbcType="VARCHAR" property="accountsMoney" />
+    <result column="PERSONAL" jdbcType="VARCHAR" property="personal" />
+    <result column="SELF_SUPPORT" jdbcType="VARCHAR" property="selfSupport" />
+    <result column="LEASE" jdbcType="VARCHAR" property="lease" />
+    <result column="LEND" jdbcType="VARCHAR" property="lend" />
+    <result column="SURPLUS" jdbcType="VARCHAR" property="surplus" />
+    <result column="ESCROW" jdbcType="VARCHAR" property="escrow" />
+    <result column="OTHER" jdbcType="VARCHAR" property="other" />
+    <result column="STATUS_REMARKS" jdbcType="VARCHAR" property="statusRemarks" />
+    <result column="AREA" jdbcType="VARCHAR" property="area" />
+    <result column="CONFIRM_AREA" jdbcType="VARCHAR" property="confirmArea" />
+    <result column="UNCONFIRMED_AREA" jdbcType="VARCHAR" property="unconfirmedArea" />
+    <result column="OBLIGEE" jdbcType="VARCHAR" property="obligee" />
+    <result column="POWER_NO" jdbcType="VARCHAR" property="powerNo" />
+    <result column="GRANT_DATE" jdbcType="DATE" property="grantDate" />
+    <result column="CARD_AREA" jdbcType="VARCHAR" property="cardArea" />
+    <result column="STATE" jdbcType="CHAR" property="state" />
+    <result column="GID" jdbcType="VARCHAR" property="gid" />
+    <result column="USE_SITUATION" jdbcType="VARCHAR" property="useSituation" />
+    <result column="USE_DEPT_ID" jdbcType="INTEGER" property="useDeptId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="USE_DIRECTION" jdbcType="VARCHAR" property="useDirection" />
+    <result column="HANDLE_USER_ID" jdbcType="INTEGER" property="handleUserId" />
+    <result column="INVOICE_NO" jdbcType="VARCHAR" property="invoiceNo" />
+    <result column="VALUE_TYPE" jdbcType="CHAR" property="valueType" />
+    <result column="USE_YEARS" jdbcType="CHAR" property="useYears" />
+    <result column="DEPRECIATION" jdbcType="CHAR" property="depreciation" />
+    <result column="CUMULATIVE_DEPRECIATION" jdbcType="VARCHAR" property="cumulativeDepreciation" />
+    <result column="ACCOUNTS_COST" jdbcType="VARCHAR" property="accountsCost" />
+    <result column="RECORDING_TIME" jdbcType="TIMESTAMP" property="recordingTime" />
+    <result column="VOUCHER_NO" jdbcType="VARCHAR" property="voucherNo" />
+    <result column="UNITS" jdbcType="CHAR" property="units" />
+    <result column="PURCHASE" jdbcType="VARCHAR" property="purchase" />
+    <result column="GL_DEPT_ID" jdbcType="INTEGER" property="glDeptId" />
+    <result column="OBTAIN_TIME" jdbcType="TIMESTAMP" property="obtainTime" />
+    <result column="FUNDS_SOURCE" jdbcType="VARCHAR" property="fundsSource" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xoa.dev.assets.model.AstPremisesDetails">
+    <result column="PICTURES" jdbcType="LONGVARCHAR" property="pictures" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    PICTURES
+  </sql>
+  <insert id="insert" parameterType="com.xoa.dev.assets.model.AstPremisesDetails">
+    insert into ast_premises_details (PREMDETA_ID, PREM_ID, PREMISES_NUM, 
+      PREMISES_NAME, SOURCE, CATE_ID, 
+      ASSETS_TYPE, COST, ADD_TIME, 
+      BUILDING_NAME, DISPUTE, LITIGATION, 
+      LAYER, TYPE, COMPLETION_TIME, 
+      PURPOSE, ACCOUNTS_AREA, ABROAD_AREA, 
+      ACCOUNTS_MONEY, PERSONAL, SELF_SUPPORT, 
+      LEASE, LEND, SURPLUS, 
+      ESCROW, OTHER, STATUS_REMARKS, 
+      AREA, CONFIRM_AREA, UNCONFIRMED_AREA, 
+      OBLIGEE, POWER_NO, GRANT_DATE, 
+      CARD_AREA, STATE, GID, 
+      USE_SITUATION, USE_DEPT_ID, USER_ID, 
+      USE_DIRECTION, HANDLE_USER_ID, INVOICE_NO, 
+      VALUE_TYPE, USE_YEARS, DEPRECIATION, 
+      CUMULATIVE_DEPRECIATION, ACCOUNTS_COST, RECORDING_TIME, 
+      VOUCHER_NO, UNITS, PURCHASE, 
+      GL_DEPT_ID, OBTAIN_TIME, FUNDS_SOURCE, 
+      PICTURES)
+    values (#{premdetaId,jdbcType=INTEGER}, #{premId,jdbcType=INTEGER}, #{premisesNum,jdbcType=VARCHAR}, 
+      #{premisesName,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{cateId,jdbcType=INTEGER}, 
+      #{assetsType,jdbcType=CHAR}, #{cost,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{buildingName,jdbcType=VARCHAR}, #{dispute,jdbcType=CHAR}, #{litigation,jdbcType=VARCHAR}, 
+      #{layer,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{completionTime,jdbcType=TIMESTAMP}, 
+      #{purpose,jdbcType=VARCHAR}, #{accountsArea,jdbcType=VARCHAR}, #{abroadArea,jdbcType=VARCHAR}, 
+      #{accountsMoney,jdbcType=VARCHAR}, #{personal,jdbcType=VARCHAR}, #{selfSupport,jdbcType=VARCHAR}, 
+      #{lease,jdbcType=VARCHAR}, #{lend,jdbcType=VARCHAR}, #{surplus,jdbcType=VARCHAR}, 
+      #{escrow,jdbcType=VARCHAR}, #{other,jdbcType=VARCHAR}, #{statusRemarks,jdbcType=VARCHAR}, 
+      #{area,jdbcType=VARCHAR}, #{confirmArea,jdbcType=VARCHAR}, #{unconfirmedArea,jdbcType=VARCHAR}, 
+      #{obligee,jdbcType=VARCHAR}, #{powerNo,jdbcType=VARCHAR}, #{grantDate,jdbcType=DATE}, 
+      #{cardArea,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, #{gid,jdbcType=VARCHAR}, 
+      #{useSituation,jdbcType=VARCHAR}, #{useDeptId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{useDirection,jdbcType=VARCHAR}, #{handleUserId,jdbcType=INTEGER}, #{invoiceNo,jdbcType=VARCHAR}, 
+      #{valueType,jdbcType=CHAR}, #{useYears,jdbcType=CHAR}, #{depreciation,jdbcType=CHAR}, 
+      #{cumulativeDepreciation,jdbcType=VARCHAR}, #{accountsCost,jdbcType=VARCHAR}, #{recordingTime,jdbcType=TIMESTAMP}, 
+      #{voucherNo,jdbcType=VARCHAR}, #{units,jdbcType=CHAR}, #{purchase,jdbcType=VARCHAR}, 
+      #{glDeptId,jdbcType=INTEGER}, #{obtainTime,jdbcType=TIMESTAMP}, #{fundsSource,jdbcType=VARCHAR}, 
+      #{pictures,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xoa.dev.assets.model.AstPremisesDetails">
+    insert into ast_premises_details
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="premdetaId != null">
+        PREMDETA_ID,
+      </if>
+      <if test="premId != null">
+        PREM_ID,
+      </if>
+      <if test="premisesNum != null">
+        PREMISES_NUM,
+      </if>
+      <if test="premisesName != null">
+        PREMISES_NAME,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="cateId != null">
+        CATE_ID,
+      </if>
+      <if test="assetsType != null">
+        ASSETS_TYPE,
+      </if>
+      <if test="cost != null">
+        COST,
+      </if>
+      <if test="addTime != null">
+        ADD_TIME,
+      </if>
+      <if test="buildingName != null">
+        BUILDING_NAME,
+      </if>
+      <if test="dispute != null">
+        DISPUTE,
+      </if>
+      <if test="litigation != null">
+        LITIGATION,
+      </if>
+      <if test="layer != null">
+        LAYER,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="completionTime != null">
+        COMPLETION_TIME,
+      </if>
+      <if test="purpose != null">
+        PURPOSE,
+      </if>
+      <if test="accountsArea != null">
+        ACCOUNTS_AREA,
+      </if>
+      <if test="abroadArea != null">
+        ABROAD_AREA,
+      </if>
+      <if test="accountsMoney != null">
+        ACCOUNTS_MONEY,
+      </if>
+      <if test="personal != null">
+        PERSONAL,
+      </if>
+      <if test="selfSupport != null">
+        SELF_SUPPORT,
+      </if>
+      <if test="lease != null">
+        LEASE,
+      </if>
+      <if test="lend != null">
+        LEND,
+      </if>
+      <if test="surplus != null">
+        SURPLUS,
+      </if>
+      <if test="escrow != null">
+        ESCROW,
+      </if>
+      <if test="other != null">
+        OTHER,
+      </if>
+      <if test="statusRemarks != null">
+        STATUS_REMARKS,
+      </if>
+      <if test="area != null">
+        AREA,
+      </if>
+      <if test="confirmArea != null">
+        CONFIRM_AREA,
+      </if>
+      <if test="unconfirmedArea != null">
+        UNCONFIRMED_AREA,
+      </if>
+      <if test="obligee != null">
+        OBLIGEE,
+      </if>
+      <if test="powerNo != null">
+        POWER_NO,
+      </if>
+      <if test="grantDate != null">
+        GRANT_DATE,
+      </if>
+      <if test="cardArea != null">
+        CARD_AREA,
+      </if>
+      <if test="state != null">
+        STATE,
+      </if>
+      <if test="gid != null">
+        GID,
+      </if>
+      <if test="useSituation != null">
+        USE_SITUATION,
+      </if>
+      <if test="useDeptId != null">
+        USE_DEPT_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="useDirection != null">
+        USE_DIRECTION,
+      </if>
+      <if test="handleUserId != null">
+        HANDLE_USER_ID,
+      </if>
+      <if test="invoiceNo != null">
+        INVOICE_NO,
+      </if>
+      <if test="valueType != null">
+        VALUE_TYPE,
+      </if>
+      <if test="useYears != null">
+        USE_YEARS,
+      </if>
+      <if test="depreciation != null">
+        DEPRECIATION,
+      </if>
+      <if test="cumulativeDepreciation != null">
+        CUMULATIVE_DEPRECIATION,
+      </if>
+      <if test="accountsCost != null">
+        ACCOUNTS_COST,
+      </if>
+      <if test="recordingTime != null">
+        RECORDING_TIME,
+      </if>
+      <if test="voucherNo != null">
+        VOUCHER_NO,
+      </if>
+      <if test="units != null">
+        UNITS,
+      </if>
+      <if test="purchase != null">
+        PURCHASE,
+      </if>
+      <if test="glDeptId != null">
+        GL_DEPT_ID,
+      </if>
+      <if test="obtainTime != null">
+        OBTAIN_TIME,
+      </if>
+      <if test="fundsSource != null">
+        FUNDS_SOURCE,
+      </if>
+      <if test="pictures != null">
+        PICTURES,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="premdetaId != null">
+        #{premdetaId,jdbcType=INTEGER},
+      </if>
+      <if test="premId != null">
+        #{premId,jdbcType=INTEGER},
+      </if>
+      <if test="premisesNum != null">
+        #{premisesNum,jdbcType=VARCHAR},
+      </if>
+      <if test="premisesName != null">
+        #{premisesName,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="cateId != null">
+        #{cateId,jdbcType=INTEGER},
+      </if>
+      <if test="assetsType != null">
+        #{assetsType,jdbcType=CHAR},
+      </if>
+      <if test="cost != null">
+        #{cost,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buildingName != null">
+        #{buildingName,jdbcType=VARCHAR},
+      </if>
+      <if test="dispute != null">
+        #{dispute,jdbcType=CHAR},
+      </if>
+      <if test="litigation != null">
+        #{litigation,jdbcType=VARCHAR},
+      </if>
+      <if test="layer != null">
+        #{layer,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="completionTime != null">
+        #{completionTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="purpose != null">
+        #{purpose,jdbcType=VARCHAR},
+      </if>
+      <if test="accountsArea != null">
+        #{accountsArea,jdbcType=VARCHAR},
+      </if>
+      <if test="abroadArea != null">
+        #{abroadArea,jdbcType=VARCHAR},
+      </if>
+      <if test="accountsMoney != null">
+        #{accountsMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="personal != null">
+        #{personal,jdbcType=VARCHAR},
+      </if>
+      <if test="selfSupport != null">
+        #{selfSupport,jdbcType=VARCHAR},
+      </if>
+      <if test="lease != null">
+        #{lease,jdbcType=VARCHAR},
+      </if>
+      <if test="lend != null">
+        #{lend,jdbcType=VARCHAR},
+      </if>
+      <if test="surplus != null">
+        #{surplus,jdbcType=VARCHAR},
+      </if>
+      <if test="escrow != null">
+        #{escrow,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="statusRemarks != null">
+        #{statusRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="confirmArea != null">
+        #{confirmArea,jdbcType=VARCHAR},
+      </if>
+      <if test="unconfirmedArea != null">
+        #{unconfirmedArea,jdbcType=VARCHAR},
+      </if>
+      <if test="obligee != null">
+        #{obligee,jdbcType=VARCHAR},
+      </if>
+      <if test="powerNo != null">
+        #{powerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="grantDate != null">
+        #{grantDate,jdbcType=DATE},
+      </if>
+      <if test="cardArea != null">
+        #{cardArea,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="gid != null">
+        #{gid,jdbcType=VARCHAR},
+      </if>
+      <if test="useSituation != null">
+        #{useSituation,jdbcType=VARCHAR},
+      </if>
+      <if test="useDeptId != null">
+        #{useDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="useDirection != null">
+        #{useDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="handleUserId != null">
+        #{handleUserId,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceNo != null">
+        #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="valueType != null">
+        #{valueType,jdbcType=CHAR},
+      </if>
+      <if test="useYears != null">
+        #{useYears,jdbcType=CHAR},
+      </if>
+      <if test="depreciation != null">
+        #{depreciation,jdbcType=CHAR},
+      </if>
+      <if test="cumulativeDepreciation != null">
+        #{cumulativeDepreciation,jdbcType=VARCHAR},
+      </if>
+      <if test="accountsCost != null">
+        #{accountsCost,jdbcType=VARCHAR},
+      </if>
+      <if test="recordingTime != null">
+        #{recordingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="voucherNo != null">
+        #{voucherNo,jdbcType=VARCHAR},
+      </if>
+      <if test="units != null">
+        #{units,jdbcType=CHAR},
+      </if>
+      <if test="purchase != null">
+        #{purchase,jdbcType=VARCHAR},
+      </if>
+      <if test="glDeptId != null">
+        #{glDeptId,jdbcType=INTEGER},
+      </if>
+      <if test="obtainTime != null">
+        #{obtainTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundsSource != null">
+        #{fundsSource,jdbcType=VARCHAR},
+      </if>
+      <if test="pictures != null">
+        #{pictures,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectByCondition" parameterType="Map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from
+    ast_premises_details
+    <where>
+      <if test="obj.premdetaId != null">
+        and PREMDETA_ID = #{obj.premdetaId,jdbcType=INTEGER}
+      </if>
+      <if test="obj.premId != null">
+        and PREM_ID = #{obj.premId,jdbcType=INTEGER}
+      </if>
+      <if test="obj.premisesNum != null">
+        and PREMISES_NUM = #{obj.premisesNum,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.premisesName != null">
+        and PREMISES_NAME = #{obj.premisesName,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.source != null">
+        and SOURCE = #{obj.source,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.cateId != null">
+        and CATE_ID = #{obj.cateId,jdbcType=INTEGER}
+      </if>
+      <if test="obj.assetsType != null">
+        and ASSETS_TYPE = #{obj.assetsType,jdbcType=CHAR}
+      </if>
+      <if test="obj.cost != null">
+        and COST = #{obj.cost,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.addTime != null">
+        and ADD_TIME = #{obj.addTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="obj.buildingName != null">
+        and BUILDING_NAME = #{obj.buildingName,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.dispute != null">
+        and DISPUTE = #{obj.dispute,jdbcType=CHAR}
+      </if>
+      <if test="obj.litigation != null">
+        and LITIGATION = #{obj.litigation,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.layer != null">
+        and LAYER = #{obj.layer,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.type != null">
+        and TYPE = #{obj.type,jdbcType=CHAR}
+      </if>
+      <if test="obj.completionTime != null">
+        and COMPLETION_TIME = #{obj.completionTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="obj.purpose != null">
+        and PURPOSE = #{obj.purpose,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.accountsArea != null">
+        and ACCOUNTS_AREA = #{obj.accountsArea,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.abroadArea != null">
+        and ABROAD_AREA = #{obj.abroadArea,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.accountsMoney != null">
+        and ACCOUNTS_MONEY = #{obj.accountsMoney,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.personal != null">
+        and PERSONAL = #{obj.personal,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.selfSupport != null">
+        and SELF_SUPPORT = #{obj.selfSupport,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.lease != null">
+        and LEASE = #{obj.lease,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.lend != null">
+        and LEND = #{obj.lend,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.surplus != null">
+        and SURPLUS = #{obj.surplus,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.escrow != null">
+        and ESCROW = #{obj.escrow,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.other != null">
+        and OTHER = #{obj.other,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.statusRemarks != null">
+        and STATUS_REMARKS = #{obj.statusRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.area != null">
+        and AREA = #{obj.area,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.confirmArea != null">
+        and CONFIRM_AREA = #{obj.confirmArea,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.unconfirmedArea != null">
+        and UNCONFIRMED_AREA = #{obj.unconfirmedArea,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.obligee != null">
+        and OBLIGEE = #{obj.obligee,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.powerNo != null">
+        and POWER_NO = #{obj.powerNo,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.grantDate != null">
+        and GRANT_DATE = #{obj.grantDate,jdbcType=DATE}
+      </if>
+      <if test="obj.cardArea != null">
+        and CARD_AREA = #{obj.cardArea,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.state != null">
+        and STATE = #{obj.state,jdbcType=CHAR}
+      </if>
+      <if test="obj.gid != null">
+        and GID = #{obj.gid,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.useSituation != null">
+        and USE_SITUATION = #{obj.useSituation,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.useDeptId != null">
+        and USE_DEPT_ID = #{obj.useDeptId,jdbcType=INTEGER}
+      </if>
+      <if test="obj.userId != null">
+        and USER_ID = #{obj.userId,jdbcType=INTEGER}
+      </if>
+      <if test="obj.useDirection != null">
+        and USE_DIRECTION = #{obj.useDirection,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.handleUserId != null">
+        and HANDLE_USER_ID = #{obj.handleUserId,jdbcType=INTEGER}
+      </if>
+      <if test="obj.invoiceNo != null">
+        and INVOICE_NO = #{obj.invoiceNo,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.valueType != null">
+        and VALUE_TYPE = #{obj.valueType,jdbcType=CHAR}
+      </if>
+      <if test="obj.useYears != null">
+        and USE_YEARS = #{obj.useYears,jdbcType=CHAR}
+      </if>
+      <if test="obj.depreciation != null">
+        and DEPRECIATION = #{obj.depreciation,jdbcType=CHAR}
+      </if>
+      <if test="obj.cumulativeDepreciation != null">
+        and CUMULATIVE_DEPRECIATION = #{obj.cumulativeDepreciation,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.accountsCost != null">
+        and ACCOUNTS_COST = #{obj.accountsCost,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.recordingTime != null">
+        and RECORDING_TIME = #{obj.recordingTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="obj.voucherNo != null">
+        and VOUCHER_NO = #{obj.voucherNo,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.units != null">
+        and UNITS = #{obj.units,jdbcType=CHAR}
+      </if>
+      <if test="obj.purchase != null">
+        and PURCHASE = #{obj.purchase,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.glDeptId != null">
+        and GL_DEPT_ID = #{obj.glDeptId,jdbcType=INTEGER}
+      </if>
+      <if test="obj.obtainTime != null">
+        and OBTAIN_TIME = #{obj.obtainTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="obj.fundsSource != null">
+        and FUNDS_SOURCE = #{obj.fundsSource,jdbcType=VARCHAR}
+      </if>
+      <if test="obj.pictures != null">
+        and PICTURES = #{obj.pictures,jdbcType=LONGVARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select PREMDETA_ID, PREM_ID, PREMISES_NUM, PREMISES_NAME, SOURCE, CATE_ID, ASSETS_TYPE, 
+    COST, ADD_TIME, BUILDING_NAME, DISPUTE, LITIGATION, LAYER, TYPE, COMPLETION_TIME, 
+    PURPOSE, ACCOUNTS_AREA, ABROAD_AREA, ACCOUNTS_MONEY, PERSONAL, SELF_SUPPORT, LEASE, 
+    LEND, SURPLUS, ESCROW, OTHER, STATUS_REMARKS, AREA, CONFIRM_AREA, UNCONFIRMED_AREA, 
+    OBLIGEE, POWER_NO, GRANT_DATE, CARD_AREA, STATE, GID, USE_SITUATION, USE_DEPT_ID, 
+    USER_ID, USE_DIRECTION, HANDLE_USER_ID, INVOICE_NO, VALUE_TYPE, USE_YEARS, DEPRECIATION, 
+    CUMULATIVE_DEPRECIATION, ACCOUNTS_COST, RECORDING_TIME, VOUCHER_NO, UNITS, PURCHASE, 
+    GL_DEPT_ID, OBTAIN_TIME, FUNDS_SOURCE, PICTURES
+    from ast_premises_details
+  </select>
+  <select id="count" parameterType="com.xoa.dev.assets.model.AstPremisesDetails" resultType="java.lang.Integer">
+    select count(1) from ast_premises_details
+    <where>
+      <if test="premdetaId != null">
+        and PREMDETA_ID = #{premdetaId,jdbcType=INTEGER}
+      </if>
+      <if test="premId != null">
+        and PREM_ID = #{premId,jdbcType=INTEGER}
+      </if>
+      <if test="premisesNum != null">
+        and PREMISES_NUM = #{premisesNum,jdbcType=VARCHAR}
+      </if>
+      <if test="premisesName != null">
+        and PREMISES_NAME = #{premisesName,jdbcType=VARCHAR}
+      </if>
+      <if test="source != null">
+        and SOURCE = #{source,jdbcType=VARCHAR}
+      </if>
+      <if test="cateId != null">
+        and CATE_ID = #{cateId,jdbcType=INTEGER}
+      </if>
+      <if test="assetsType != null">
+        and ASSETS_TYPE = #{assetsType,jdbcType=CHAR}
+      </if>
+      <if test="cost != null">
+        and COST = #{cost,jdbcType=VARCHAR}
+      </if>
+      <if test="addTime != null">
+        and ADD_TIME = #{addTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="buildingName != null">
+        and BUILDING_NAME = #{buildingName,jdbcType=VARCHAR}
+      </if>
+      <if test="dispute != null">
+        and DISPUTE = #{dispute,jdbcType=CHAR}
+      </if>
+      <if test="litigation != null">
+        and LITIGATION = #{litigation,jdbcType=VARCHAR}
+      </if>
+      <if test="layer != null">
+        and LAYER = #{layer,jdbcType=VARCHAR}
+      </if>
+      <if test="type != null">
+        and TYPE = #{type,jdbcType=CHAR}
+      </if>
+      <if test="completionTime != null">
+        and COMPLETION_TIME = #{completionTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="purpose != null">
+        and PURPOSE = #{purpose,jdbcType=VARCHAR}
+      </if>
+      <if test="accountsArea != null">
+        and ACCOUNTS_AREA = #{accountsArea,jdbcType=VARCHAR}
+      </if>
+      <if test="abroadArea != null">
+        and ABROAD_AREA = #{abroadArea,jdbcType=VARCHAR}
+      </if>
+      <if test="accountsMoney != null">
+        and ACCOUNTS_MONEY = #{accountsMoney,jdbcType=VARCHAR}
+      </if>
+      <if test="personal != null">
+        and PERSONAL = #{personal,jdbcType=VARCHAR}
+      </if>
+      <if test="selfSupport != null">
+        and SELF_SUPPORT = #{selfSupport,jdbcType=VARCHAR}
+      </if>
+      <if test="lease != null">
+        and LEASE = #{lease,jdbcType=VARCHAR}
+      </if>
+      <if test="lend != null">
+        and LEND = #{lend,jdbcType=VARCHAR}
+      </if>
+      <if test="surplus != null">
+        and SURPLUS = #{surplus,jdbcType=VARCHAR}
+      </if>
+      <if test="escrow != null">
+        and ESCROW = #{escrow,jdbcType=VARCHAR}
+      </if>
+      <if test="other != null">
+        and OTHER = #{other,jdbcType=VARCHAR}
+      </if>
+      <if test="statusRemarks != null">
+        and STATUS_REMARKS = #{statusRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="area != null">
+        and AREA = #{area,jdbcType=VARCHAR}
+      </if>
+      <if test="confirmArea != null">
+        and CONFIRM_AREA = #{confirmArea,jdbcType=VARCHAR}
+      </if>
+      <if test="unconfirmedArea != null">
+        and UNCONFIRMED_AREA = #{unconfirmedArea,jdbcType=VARCHAR}
+      </if>
+      <if test="obligee != null">
+        and OBLIGEE = #{obligee,jdbcType=VARCHAR}
+      </if>
+      <if test="powerNo != null">
+        and POWER_NO = #{powerNo,jdbcType=VARCHAR}
+      </if>
+      <if test="grantDate != null">
+        and GRANT_DATE = #{grantDate,jdbcType=DATE}
+      </if>
+      <if test="cardArea != null">
+        and CARD_AREA = #{cardArea,jdbcType=VARCHAR}
+      </if>
+      <if test="state != null">
+        and STATE = #{state,jdbcType=CHAR}
+      </if>
+      <if test="gid != null">
+        and GID = #{gid,jdbcType=VARCHAR}
+      </if>
+      <if test="useSituation != null">
+        and USE_SITUATION = #{useSituation,jdbcType=VARCHAR}
+      </if>
+      <if test="useDeptId != null">
+        and USE_DEPT_ID = #{useDeptId,jdbcType=INTEGER}
+      </if>
+      <if test="userId != null">
+        and USER_ID = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="useDirection != null">
+        and USE_DIRECTION = #{useDirection,jdbcType=VARCHAR}
+      </if>
+      <if test="handleUserId != null">
+        and HANDLE_USER_ID = #{handleUserId,jdbcType=INTEGER}
+      </if>
+      <if test="invoiceNo != null">
+        and INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR}
+      </if>
+      <if test="valueType != null">
+        and VALUE_TYPE = #{valueType,jdbcType=CHAR}
+      </if>
+      <if test="useYears != null">
+        and USE_YEARS = #{useYears,jdbcType=CHAR}
+      </if>
+      <if test="depreciation != null">
+        and DEPRECIATION = #{depreciation,jdbcType=CHAR}
+      </if>
+      <if test="cumulativeDepreciation != null">
+        and CUMULATIVE_DEPRECIATION = #{cumulativeDepreciation,jdbcType=VARCHAR}
+      </if>
+      <if test="accountsCost != null">
+        and ACCOUNTS_COST = #{accountsCost,jdbcType=VARCHAR}
+      </if>
+      <if test="recordingTime != null">
+        and RECORDING_TIME = #{recordingTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="voucherNo != null">
+        and VOUCHER_NO = #{voucherNo,jdbcType=VARCHAR}
+      </if>
+      <if test="units != null">
+        and UNITS = #{units,jdbcType=CHAR}
+      </if>
+      <if test="purchase != null">
+        and PURCHASE = #{purchase,jdbcType=VARCHAR}
+      </if>
+      <if test="glDeptId != null">
+        and GL_DEPT_ID = #{glDeptId,jdbcType=INTEGER}
+      </if>
+      <if test="obtainTime != null">
+        and OBTAIN_TIME = #{obtainTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="fundsSource != null">
+        and FUNDS_SOURCE = #{fundsSource,jdbcType=VARCHAR}
+      </if>
+      <if test="pictures != null">
+        and PICTURES = #{pictures,jdbcType=LONGVARCHAR}
+      </if>
+    </where>
+  </select>
+  <delete id="deleteByCondition" parameterType="com.xoa.dev.assets.model.AstPremisesDetails">
+    delete from ast_premises_details
+    <where>
+      <if test="premdetaId != null">
+        and PREMDETA_ID = #{premdetaId,jdbcType=INTEGER}
+      </if>
+      <if test="premId != null">
+        and PREM_ID = #{premId,jdbcType=INTEGER}
+      </if>
+      <if test="premisesNum != null">
+        and PREMISES_NUM = #{premisesNum,jdbcType=VARCHAR}
+      </if>
+      <if test="premisesName != null">
+        and PREMISES_NAME = #{premisesName,jdbcType=VARCHAR}
+      </if>
+      <if test="source != null">
+        and SOURCE = #{source,jdbcType=VARCHAR}
+      </if>
+      <if test="cateId != null">
+        and CATE_ID = #{cateId,jdbcType=INTEGER}
+      </if>
+      <if test="assetsType != null">
+        and ASSETS_TYPE = #{assetsType,jdbcType=CHAR}
+      </if>
+      <if test="cost != null">
+        and COST = #{cost,jdbcType=VARCHAR}
+      </if>
+      <if test="addTime != null">
+        and ADD_TIME = #{addTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="buildingName != null">
+        and BUILDING_NAME = #{buildingName,jdbcType=VARCHAR}
+      </if>
+      <if test="dispute != null">
+        and DISPUTE = #{dispute,jdbcType=CHAR}
+      </if>
+      <if test="litigation != null">
+        and LITIGATION = #{litigation,jdbcType=VARCHAR}
+      </if>
+      <if test="layer != null">
+        and LAYER = #{layer,jdbcType=VARCHAR}
+      </if>
+      <if test="type != null">
+        and TYPE = #{type,jdbcType=CHAR}
+      </if>
+      <if test="completionTime != null">
+        and COMPLETION_TIME = #{completionTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="purpose != null">
+        and PURPOSE = #{purpose,jdbcType=VARCHAR}
+      </if>
+      <if test="accountsArea != null">
+        and ACCOUNTS_AREA = #{accountsArea,jdbcType=VARCHAR}
+      </if>
+      <if test="abroadArea != null">
+        and ABROAD_AREA = #{abroadArea,jdbcType=VARCHAR}
+      </if>
+      <if test="accountsMoney != null">
+        and ACCOUNTS_MONEY = #{accountsMoney,jdbcType=VARCHAR}
+      </if>
+      <if test="personal != null">
+        and PERSONAL = #{personal,jdbcType=VARCHAR}
+      </if>
+      <if test="selfSupport != null">
+        and SELF_SUPPORT = #{selfSupport,jdbcType=VARCHAR}
+      </if>
+      <if test="lease != null">
+        and LEASE = #{lease,jdbcType=VARCHAR}
+      </if>
+      <if test="lend != null">
+        and LEND = #{lend,jdbcType=VARCHAR}
+      </if>
+      <if test="surplus != null">
+        and SURPLUS = #{surplus,jdbcType=VARCHAR}
+      </if>
+      <if test="escrow != null">
+        and ESCROW = #{escrow,jdbcType=VARCHAR}
+      </if>
+      <if test="other != null">
+        and OTHER = #{other,jdbcType=VARCHAR}
+      </if>
+      <if test="statusRemarks != null">
+        and STATUS_REMARKS = #{statusRemarks,jdbcType=VARCHAR}
+      </if>
+      <if test="area != null">
+        and AREA = #{area,jdbcType=VARCHAR}
+      </if>
+      <if test="confirmArea != null">
+        and CONFIRM_AREA = #{confirmArea,jdbcType=VARCHAR}
+      </if>
+      <if test="unconfirmedArea != null">
+        and UNCONFIRMED_AREA = #{unconfirmedArea,jdbcType=VARCHAR}
+      </if>
+      <if test="obligee != null">
+        and OBLIGEE = #{obligee,jdbcType=VARCHAR}
+      </if>
+      <if test="powerNo != null">
+        and POWER_NO = #{powerNo,jdbcType=VARCHAR}
+      </if>
+      <if test="grantDate != null">
+        and GRANT_DATE = #{grantDate,jdbcType=DATE}
+      </if>
+      <if test="cardArea != null">
+        and CARD_AREA = #{cardArea,jdbcType=VARCHAR}
+      </if>
+      <if test="state != null">
+        and STATE = #{state,jdbcType=CHAR}
+      </if>
+      <if test="gid != null">
+        and GID = #{gid,jdbcType=VARCHAR}
+      </if>
+      <if test="useSituation != null">
+        and USE_SITUATION = #{useSituation,jdbcType=VARCHAR}
+      </if>
+      <if test="useDeptId != null">
+        and USE_DEPT_ID = #{useDeptId,jdbcType=INTEGER}
+      </if>
+      <if test="userId != null">
+        and USER_ID = #{userId,jdbcType=INTEGER}
+      </if>
+      <if test="useDirection != null">
+        and USE_DIRECTION = #{useDirection,jdbcType=VARCHAR}
+      </if>
+      <if test="handleUserId != null">
+        and HANDLE_USER_ID = #{handleUserId,jdbcType=INTEGER}
+      </if>
+      <if test="invoiceNo != null">
+        and INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR}
+      </if>
+      <if test="valueType != null">
+        and VALUE_TYPE = #{valueType,jdbcType=CHAR}
+      </if>
+      <if test="useYears != null">
+        and USE_YEARS = #{useYears,jdbcType=CHAR}
+      </if>
+      <if test="depreciation != null">
+        and DEPRECIATION = #{depreciation,jdbcType=CHAR}
+      </if>
+      <if test="cumulativeDepreciation != null">
+        and CUMULATIVE_DEPRECIATION = #{cumulativeDepreciation,jdbcType=VARCHAR}
+      </if>
+      <if test="accountsCost != null">
+        and ACCOUNTS_COST = #{accountsCost,jdbcType=VARCHAR}
+      </if>
+      <if test="recordingTime != null">
+        and RECORDING_TIME = #{recordingTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="voucherNo != null">
+        and VOUCHER_NO = #{voucherNo,jdbcType=VARCHAR}
+      </if>
+      <if test="units != null">
+        and UNITS = #{units,jdbcType=CHAR}
+      </if>
+      <if test="purchase != null">
+        and PURCHASE = #{purchase,jdbcType=VARCHAR}
+      </if>
+      <if test="glDeptId != null">
+        and GL_DEPT_ID = #{glDeptId,jdbcType=INTEGER}
+      </if>
+      <if test="obtainTime != null">
+        and OBTAIN_TIME = #{obtainTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="fundsSource != null">
+        and FUNDS_SOURCE = #{fundsSource,jdbcType=VARCHAR}
+      </if>
+      <if test="pictures != null">
+        and PICTURES = #{pictures,jdbcType=LONGVARCHAR}
+      </if>
+    </where>
+  </delete>
+</mapper>
