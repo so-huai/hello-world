@@ -22,7 +22,7 @@
 		<project.json.version>2.4</project.json.version>
 		<project.spring.version>5.1.1.RELEASE</project.spring.version>
 		<project.servletapi.versioni>3.1.0</project.servletapi.versioni>
-		<mybatis.version>3.2.7</mybatis.version>
+		<mybatis.version>3.5.6</mybatis.version>
 		<mybatis-spring.version>1.2.2</mybatis-spring.version>
 	</properties>
 
